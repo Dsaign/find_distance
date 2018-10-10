@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+/*RESET*/
+a:link { color: #FFF }
+a:visited { color: #FFF }
+a:hover { color: #FFF }
+a:active { color: #FFF }
+a{ text-decoration:none }
+img { image-rendering: auto }
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+::selection{ background-color: #0fddad; color: #FFF; }
+::-moz-selection{ background-color: #0fddad;  color: #FFF; }
+
+body, html{
+    margin:0;
+    font-family: 'Raleway', sans-serif;
+    background-color: #F1F5F5;
+    -webkit-font-smoothing: antialiased;
+}
+.line1, .line2{
+    position: absolute;
+    width: 1px;
+    background-color: red;
+    height: 100%;
+    top:0;
+    z-index: 1;
+}
+.line1{ left: 200px }
+.line2{ left: 30px }
+#menu{
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: #1c3645;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    overflow: visible !important;
+}
+#menu:after{
+    content:'menu';
+    right:-50px;
+    margin-top: -7px;
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+#menu:before{
+    content:'';
+    height: 0;
+    width: 20px;
+    right:-20px;
+    border-top: 3px solid #1c3645;
+}
+#menu:after,
+#menu:before{
+    position: absolute;
+    display: block;
+    top: 50%;
+    color: #1c3645;
+    font-size: 14px;
+}
+#menu.hide_pseudo:after,
+#menu.hide_pseudo:before{
+    right: 0;
+}
+#menu .content{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    padding: 50px 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    top: 0;
+    left: 10%;
+    overflow: hidden;
+    text-align: center;
+    opacity: 0;
+}
+.close{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-size: 25px;
+    line-height: 10px;
+    color: #0fddad;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0;
+}
+.close,
+.content,
+ul.submenu li a,
+ul.submenu li a:hover,
+ul.submenu li a:before,
+ul.submenu li a:after,
+.close:hover:before{
+    -webkit-transition: all 500ms cubic-bezier(.31,.19,.16,1);
+    -moz-transition: all 500ms cubic-bezier(.31,.19,.16,1);
+    -ms-transition: all 500ms cubic-bezier(.31,.19,.16,1);
+    -o-transition: all 500ms cubic-bezier(.31,.19,.16,1);
+    transition: all 500ms cubic-bezier(.31,.19,.16,1);
+}
+#menu:after,
+#menu:before{
+    -webkit-transition: all 200ms cubic-bezier(.31,.19,.16,1);
+    -moz-transition: all 200ms cubic-bezier(.31,.19,.16,1);
+    -ms-transition: all 200ms cubic-bezier(.31,.19,.16,1);
+    -o-transition: all 200ms cubic-bezier(.31,.19,.16,1);
+    transition: all 200ms cubic-bezier(.31,.19,.16,1);
+}
+
+.close:before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    transform-origin: center;
+    top:50%;
+    left:50%;
+    width: 1px;
+    height: 1px;
+    background-color: #1c3645;
+    border-radius: 50%;
+}
+.close:hover:before{
+    -moz-transform: scale(50);
+    -webkit-transform: scale(50);
+    -o-transform: scale(50);
+    -ms-transform: scale(50);
+    transform: scale(50);
+    background-color: #0fddad;
+    opacity: 0;
+}
+
+ul.submenu,
+ul.submenu li{
+    list-style: none;
+    margin:0;padding:0;
+    color: #FFF;
+    font-size: 14px;
+}
+ul.submenu{
+    margin-top: 80px;
+}
+ul.submenu li{
+    position: relative;
+    border-bottom: 1px solid rgba(15,221,173,0.5);
+}
+ul.submenu,
+ul.submenu li,
+ul.submenu li a{
+    overflow: hidden !important;
+}
+ul.submenu li a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+}
+ul.submenu li:first-child{ border-top: 1px solid rgba(15,221,173,0.5) }
+ul.submenu li a:after{
+    bottom: 0%;
+    right: -60%;
+}
+ul.submenu li a:before{
+    top: 0%;
+    left: -60%;
+}
+ul.submenu li a:before,
+ul.submenu li a:after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 60%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(15,221,173,0.5);
+    -moz-transform: skewX(-45deg);
+    -webkit-transform: skewX(-45deg);
+    -o-transform: skewX(-45deg);
+    -ms-transform: skewX(-45deg);
+    transform: skewX(-45deg);
+}
+ul.submenu li a:hover:after{
+    bottom:0;right:-10%;
+}
+ul.submenu li a:hover:before{
+    top:0;left:-10%;
+}
